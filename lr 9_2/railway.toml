@@ -1,0 +1,8 @@
+[build]
+builder = "paketobuildpacks/builder:base"
+
+[build.env]
+BP_DOTNET_PROJECT_PATH = "lr4_3/lr4_3.csproj"
+
+[deploy]
+startCommand = "dotnet out/lr4_3.dll"
