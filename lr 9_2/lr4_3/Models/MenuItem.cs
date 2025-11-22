@@ -1,0 +1,10 @@
+﻿namespace lr4_3.Models
+{
+    public class MenuItem
+    {
+        public int Id { get; set; }
+        public int RestaurantId { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+    }
+}
