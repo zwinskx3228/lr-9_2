@@ -5,12 +5,11 @@ using lr4_3.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 
-builder.WebHost.ConfigureKestrel(options =>
-{
-    options.ListenAnyIP(Int32.Parse(port));
-});
+
+
+
+
 
 // Repositories
 builder.Services.AddSingleton<IRestaurantRepository, RestaurantRepository>();
@@ -29,10 +28,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+app.Urls.Add($"http://0.0.0.0:{port}");
 app.UseSwagger();
 app.UseSwaggerUI();
 
 app.MapControllers();
 
 app.Run();
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(Int32.Parse(port));
+});
