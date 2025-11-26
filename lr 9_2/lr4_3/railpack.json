@@ -1,0 +1,15 @@
+{
+  "$schema": "https://railpack.com/schemas/railpack.json",
+  "build": {
+    "builder": "DOTNET",
+    "extra": {
+      "image": "mcr.microsoft.com/dotnet/sdk:6.0"
+    }
+  },
+  "deploy": {
+    "runtime": "DOTNET",
+    "extra": {
+      "image": "mcr.microsoft.com/dotnet/aspnet:6.0-alpine"
+    }
+  },
+  "startCommand": "dotnet lr9_2.dll"
